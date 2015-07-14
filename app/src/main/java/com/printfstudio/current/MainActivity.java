@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * 不用这个Activity，用来测试功能什么的都行，提交的时候最好不要勾选这个文件
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
