@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.printfstudio.current.R;
 import com.printfstudio.current.common.Finals;
@@ -19,12 +20,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FreeDiaryLayout extends LinearLayout {
+
+    int vhId = 0;
+
+
     private List<EditViewHolder> holders = new ArrayList<>();
-    private EditText activeEditText;
+    private EditViewHolder activeHolder;
     private final OnTouchListener changeFocusListener = new OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            activeEditText = (EditText) v;
+            System.out.println("changed");
+            activeHolder = (EditViewHolder) v.getTag();
             return false;
         }
     };
@@ -52,33 +58,46 @@ public class FreeDiaryLayout extends LinearLayout {
 
     private void init() {
         setOrientation(VERTICAL);
-        addTextArea(0);
-        activeEditText = holders.get(0).editText;
+        activeHolder = addTextArea();
     }
 
-    public void addTextArea() {
+    public EditViewHolder addTextArea() {
         View textArea = LayoutInflater.from(getContext()).inflate(R.layout.component_free_text_edit, this, false);
         EditViewHolder holder = new EditViewHolder(textArea, Finals.DIARY_COMPONENT_TYPE_TEXT);
         holders.add(holder);
+        holder.editText.setTag(holder);
         holder.editText.setOnTouchListener(changeFocusListener);
         refreshView();
+        return holder;
     }
 
-    public void addTextArea(int position) {
+    public EditViewHolder addTextArea(int position) {
         View textArea = LayoutInflater.from(getContext()).inflate(R.layout.component_free_text_edit, this, false);
         EditViewHolder holder = new EditViewHolder(textArea, Finals.DIARY_COMPONENT_TYPE_TEXT);
         holders.add(position, holder);
+        holder.editText.setTag(holder);
         holder.editText.setOnTouchListener(changeFocusListener);
         refreshView();
+        return holder;
     }
 
     public void addImageArea() {
-        View imageArea = LayoutInflater.from(getContext()).inflate(R.layout.component_free_image_edit, this, false);
-        EditViewHolder holder = new EditViewHolder(imageArea, Finals.DIARY_COMPONENT_TYPE_IMAGE);
-        holders.add(holder);
-        holder.imageView.setImageResource(R.mipmap.ic_launcher);
-        refreshView();
+        int focusIndex = holders.indexOf(activeHolder);
+        EditText focusEditText = activeHolder.editText;
+        int location = focusEditText.getSelectionStart();
+        String origin = focusEditText.getText().toString();
+        focusEditText.setText(origin.substring(0, location));
+        addImageArea(focusIndex + 1);
+        addTextArea(focusIndex + 2).editText.setText(origin.substring(location));
     }
+
+//    public void addImageArea() {
+//        View imageArea = LayoutInflater.from(getContext()).inflate(R.layout.component_free_image_edit, this, false);
+//        EditViewHolder holder = new EditViewHolder(imageArea, Finals.DIARY_COMPONENT_TYPE_IMAGE);
+//        holders.add(holder);
+//        holder.imageView.setImageResource(R.mipmap.ic_launcher);
+//        refreshView();
+//    }
 
     public void addImageArea(int position) {
         View imageArea = LayoutInflater.from(getContext()).inflate(R.layout.component_free_image_edit, this, false);
@@ -95,12 +114,12 @@ public class FreeDiaryLayout extends LinearLayout {
         }
     }
 
-    public EditText getActiveEditText() {
-        return activeEditText;
+    public EditViewHolder getActiveHolder() {
+        return activeHolder;
     }
 
-    public void setActiveEditText(EditText activeEditText) {
-        this.activeEditText = activeEditText;
+    public void setActiveHolder(EditViewHolder activeHolder) {
+        this.activeHolder = activeHolder;
     }
 
     public List<EditViewHolder> getHolders() {
@@ -112,6 +131,7 @@ public class FreeDiaryLayout extends LinearLayout {
     }
 
     public class EditViewHolder {
+        private int Id;
         private View itemView;
         private int type = Finals.DIARY_COMPONENT_TYPE_TEXT;
 
@@ -122,6 +142,8 @@ public class FreeDiaryLayout extends LinearLayout {
             this.itemView = itemView;
             this.type = type;
             initViews();
+            Id = vhId;
+            vhId++;
         }
 
         private void initViews() {
@@ -136,6 +158,15 @@ public class FreeDiaryLayout extends LinearLayout {
                     break;
             }
         }
+
+        public int getId() {
+            return Id;
+        }
+
+        public void setId(int id) {
+            Id = id;
+        }
+
     }
 
 }
