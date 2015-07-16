@@ -41,4 +41,8 @@ public class Tools {
         }
         return statusBarHeight;
     }
+
+    public void a(){
+
+    }
 }
