@@ -32,11 +32,12 @@
         android:textSize="12dp" />
 
     <ImageView
-        android:id="@id/image"
+        android:id="@+id/image"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_below="@+id/view_1"
-        android:layout_marginLeft="65dp" />
+        android:layout_marginLeft="65dp"
+        android:src="@drawable/ic_launcher" />
 
     <View
         android:id="@+id/view_2"
@@ -65,6 +66,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_below="@+id/contents"
+            android:src="@drawable/ic_launcher"
             android:layout_alignParentBottom="true" />
 
         <TextView
