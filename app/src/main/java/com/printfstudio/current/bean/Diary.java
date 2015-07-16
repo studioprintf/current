@@ -3,6 +3,7 @@ package com.printfstudio.current.bean;
 import com.printfstudio.current.server.Obj;
 
 /**
+ * 封装日记的信息类
  * 待完善
  */
 public class Diary extends Obj {
