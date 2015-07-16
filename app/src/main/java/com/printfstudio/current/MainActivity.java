@@ -2,6 +2,7 @@ package com.printfstudio.current;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -20,7 +21,7 @@ import java.util.List;
  * 不用这个Activity，用来测试功能什么的都行，提交的时候最好不要勾选这个文件
  * test
  */
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<Timeline_ItemBean> itemBeanList;
