@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.printfstudio.current.R;
+import com.printfstudio.current.bean.Diary;
 import com.printfstudio.current.common.Finals;
 
 import java.util.ArrayList;
@@ -61,6 +62,27 @@ public class FreeDiaryLayout extends LinearLayout {
         activeHolder = addTextArea();
     }
 
+    public Diary makeDiary() {
+        Diary diary = new Diary();
+        String content = "";
+        for (int i = 0; i < holders.size(); i++) {
+            EditViewHolder holder = holders.get(i);
+            switch (holder.getType()) {
+                case Finals.DIARY_COMPONENT_TYPE_TEXT:
+                    content = content + holder.editText.getText().toString();
+                    break;
+                case Finals.DIARY_COMPONENT_TYPE_IMAGE:
+                    content = content + Finals.DIARY_COMPONENT_IMAGE_SYMBOL;
+                    break;
+                case Finals.DIARY_COMPONENT_TYPE_VOICE:
+                    content = content + Finals.DIARY_COMPONENT_VOICE_SYMBOL;
+                    break;
+            }
+        }
+        diary.setContent(content);
+        return diary;
+    }
+
     public EditViewHolder addTextArea() {
         View textArea = LayoutInflater.from(getContext()).inflate(R.layout.component_free_text_edit, this, false);
         EditViewHolder holder = new EditViewHolder(textArea, Finals.DIARY_COMPONENT_TYPE_TEXT);
@@ -90,14 +112,6 @@ public class FreeDiaryLayout extends LinearLayout {
         addImageArea(focusIndex + 1);
         addTextArea(focusIndex + 2).editText.setText(origin.substring(location));
     }
-
-//    public void addImageArea() {
-//        View imageArea = LayoutInflater.from(getContext()).inflate(R.layout.component_free_image_edit, this, false);
-//        EditViewHolder holder = new EditViewHolder(imageArea, Finals.DIARY_COMPONENT_TYPE_IMAGE);
-//        holders.add(holder);
-//        holder.imageView.setImageResource(R.mipmap.ic_launcher);
-//        refreshView();
-//    }
 
     public void addImageArea(int position) {
         View imageArea = LayoutInflater.from(getContext()).inflate(R.layout.component_free_image_edit, this, false);
@@ -157,6 +171,14 @@ public class FreeDiaryLayout extends LinearLayout {
                 case Finals.DIARY_COMPONENT_TYPE_VOICE:
                     break;
             }
+        }
+
+        public int getType() {
+            return type;
+        }
+
+        public void setType(int type) {
+            this.type = type;
         }
 
         public int getId() {

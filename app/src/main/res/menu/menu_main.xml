@@ -7,4 +7,9 @@
         android:orderInCategory="100"
         android:title="img"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_add_diary"
+        android:orderInCategory="100"
+        android:title="diary"
+        app:showAsAction="always" />
 </menu>
