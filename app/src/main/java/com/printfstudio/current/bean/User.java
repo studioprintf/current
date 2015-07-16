@@ -5,6 +5,7 @@ import com.printfstudio.current.server.Account;
 import java.util.Date;
 
 /**
+ * 封装用户的信息类
  * 待完善的类
  */
 public class User extends Account {

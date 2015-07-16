@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.printfstudio.current.R;
 import com.printfstudio.current.bean.Diary;
@@ -20,9 +19,12 @@ import com.printfstudio.current.common.Finals;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FreeDiaryLayout extends LinearLayout {
+/**
+ * 此类实现了编辑日记和显示日记的自由内容布局
+ * 支持文字（编辑/显示），图片（编辑/显示），声音（录制/显示）控件的自由添加
+ */
 
-    int vhId = 0;
+public class FreeDiaryLayout extends LinearLayout {
 
 
     private List<EditViewHolder> holders = new ArrayList<>();
@@ -145,7 +147,6 @@ public class FreeDiaryLayout extends LinearLayout {
     }
 
     public class EditViewHolder {
-        private int Id;
         private View itemView;
         private int type = Finals.DIARY_COMPONENT_TYPE_TEXT;
 
@@ -156,8 +157,6 @@ public class FreeDiaryLayout extends LinearLayout {
             this.itemView = itemView;
             this.type = type;
             initViews();
-            Id = vhId;
-            vhId++;
         }
 
         private void initViews() {
@@ -181,13 +180,6 @@ public class FreeDiaryLayout extends LinearLayout {
             this.type = type;
         }
 
-        public int getId() {
-            return Id;
-        }
-
-        public void setId(int id) {
-            Id = id;
-        }
 
     }
 
