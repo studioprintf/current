@@ -41,7 +41,7 @@
     <View
         android:id="@+id/view_2"
         android:layout_width="1dp"
-        android:layout_height="100dp"
+        android:layout_height="fill_parent"
         android:layout_below="@+id/image"
         android:layout_marginLeft="71dp"
         android:background="#A6A6A6" />
@@ -54,7 +54,6 @@
         android:layout_marginTop="-20dp"
         android:layout_toRightOf="@+id/image"
         android:padding="10dp"
-        android:layout_alignBottom="@+id/view_2"
         android:layout_alignParentRight="true"
         android:gravity="center"
         android:layout_alignParentEnd="true">

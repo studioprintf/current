@@ -24,7 +24,7 @@ public class Tools {
      * @param activity 当前Activity上下文
      * @return 顶栏高度
      */
-    private static int getStatusBarHeight(Activity activity) {
+    public static int getStatusBarHeight(Activity activity) {
         Class<?> c;
         Object obj;
         Field field;
