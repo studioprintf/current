@@ -1,41 +1,52 @@
 package com.printfstudio.current;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.printfstudio.current.views.BaseActivity;
 import com.printfstudio.current.views.FreeDiaryLayout;
+import com.printfstudio.current.views.TimelineAdapter;
+import com.printfstudio.current.views.Timeline_ItemBean;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 不用这个Activity，用来测试功能什么的都行，提交的时候最好不要勾选这个文件
  * test
  */
-public class MainActivity extends BaseActivity {
-    FreeDiaryLayout freeDiaryLayout;
+public class MainActivity extends Activity {
 
+    private RecyclerView recyclerView;
+    private List<Timeline_ItemBean> itemBeanList;
+    private TimelineAdapter timelineAdapter;
+    private LinearLayoutManager linearLayoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        freeDiaryLayout = (FreeDiaryLayout) findViewById(R.id.test_free);
+        setContentView(R.layout.timeline_recyclerview);
+        initViews();
+        initDatas();
+        recyclerView.setAdapter(timelineAdapter);
+        recyclerView.setLayoutManager(linearLayoutManager);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    private void initViews(){
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_add_img) {
-            freeDiaryLayout.addImageArea();
-        } else if (id == R.id.action_add_diary) {
-            Toast.makeText(getApplicationContext(), freeDiaryLayout.makeDiary().getContent(), Toast.LENGTH_LONG).show();
+    private void initDatas(){
+        itemBeanList = new ArrayList<>();
+        for(int i = 0;i < 20;i++){
+            itemBeanList.add(new Timeline_ItemBean("Time"+i,R.drawable.ic_launcher,R.drawable.ic_launcher,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+i));
         }
-        return super.onOptionsItemSelected(item);
+        timelineAdapter = new TimelineAdapter(this,itemBeanList);
+        linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
     }
+
 }
