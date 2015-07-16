@@ -10,6 +10,7 @@ import com.printfstudio.current.views.FreeDiaryLayout;
 
 /**
  * 不用这个Activity，用来测试功能什么的都行，提交的时候最好不要勾选这个文件
+ * test
  */
 public class MainActivity extends BaseActivity {
     FreeDiaryLayout freeDiaryLayout;
