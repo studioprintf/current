@@ -1,9 +1,8 @@
-package com.printfstudio.current.activity;
+package com.printfstudio.current.ui.activity;
 
 import android.os.Bundle;
 
 import com.printfstudio.current.R;
-import com.printfstudio.current.views.BaseActivity;
 
 
 public class CreateDiaryActivity extends BaseActivity {

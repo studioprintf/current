@@ -1,4 +1,4 @@
-package com.printfstudio.current.views;
+package com.printfstudio.current.ui.activity;
 
 
 import android.os.Build;

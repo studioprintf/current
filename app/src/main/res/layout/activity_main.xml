@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id = "@+id/drawer_layout"
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
@@ -26,4 +27,5 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/drawer_header"
         app:menu="@menu/drawer" />
+
 </android.support.v4.widget.DrawerLayout>
