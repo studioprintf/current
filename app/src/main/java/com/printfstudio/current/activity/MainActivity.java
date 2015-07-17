@@ -10,7 +10,7 @@ import com.printfstudio.current.R;
 import com.printfstudio.current.views.BaseActivity;
 
 /**
- * 程序的入口activity
+ * 程序的入口Activity
  */
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
     private NavigationView navigationView;
