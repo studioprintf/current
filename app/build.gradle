@@ -26,4 +26,5 @@ dependencies {
     compile files('libs/BmobSDK_V3.4.0_0616.jar')
     compile files('libs/Bmob_Push_V0.6beta_20150408.jar')
     compile 'com.android.support:design:22.2.0'
+    compile 'com.android.support:support-v4:22.2.0'
 }

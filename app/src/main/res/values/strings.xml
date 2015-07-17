@@ -2,4 +2,7 @@
     <string name="app_name">此刻</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">设置</string>
+    <string name="home">主页</string>
+    <string name="newDiary">新建日记</string>
+    <string name="myPage">我的主页</string>
 </resources>
