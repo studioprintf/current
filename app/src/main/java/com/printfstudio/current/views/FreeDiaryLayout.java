@@ -32,7 +32,6 @@ public class FreeDiaryLayout extends LinearLayout {
     private final OnTouchListener changeFocusListener = new OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            System.out.println("changed");
             activeHolder = (EditViewHolder) v.getTag();
             return false;
         }
@@ -62,6 +61,7 @@ public class FreeDiaryLayout extends LinearLayout {
     private void init() {
         setOrientation(VERTICAL);
         activeHolder = addTextArea();
+        activeHolder.editText.setHint(R.string.hint_content);
     }
 
     public Diary makeDiary() {
