@@ -14,7 +14,7 @@ import com.printfstudio.current.activity.Timeline;
  * 程序的入口Activity
  */
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private NavigationView navigationView;
+    private NavigationView navigationView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
