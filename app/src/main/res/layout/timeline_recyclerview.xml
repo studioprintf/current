@@ -12,7 +12,26 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/ic_launcher"></RelativeLayout>
+        android:background="@drawable/ic_launcher">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/touxiang"
+            android:src="@drawable/ic_launcher"
+            android:layout_marginLeft="48dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <View
+            android:id="@+id/fengexian"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/touxiang"
+            android:layout_alignBottom="@+id/relative"
+            android:layout_marginLeft="71dp"
+            android:background="#A6A6A6" />
+    </RelativeLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_below="@id/useridcard"
