@@ -7,7 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.printfstudio.current.R;
-import com.printfstudio.current.views.BaseActivity;
+import com.printfstudio.current.ui.activity.BaseActivity;
 import com.printfstudio.current.views.TimelineAdapter;
 import com.printfstudio.current.views.Timeline_ItemBean;
 

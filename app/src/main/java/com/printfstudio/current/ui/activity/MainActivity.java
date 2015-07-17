@@ -1,4 +1,4 @@
-package com.printfstudio.current.activity;
+package com.printfstudio.current.ui.activity;
 
 
 import android.content.Intent;
@@ -7,7 +7,8 @@ import android.support.design.widget.NavigationView;
 import android.view.MenuItem;
 
 import com.printfstudio.current.R;
-import com.printfstudio.current.views.BaseActivity;
+import com.printfstudio.current.activity.Timeline;
+
 
 /**
  * 程序的入口Activity
