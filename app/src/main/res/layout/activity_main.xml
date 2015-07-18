@@ -11,8 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/base_activity_component_status_bar" />
-
         <LinearLayout
             android:id="@+id/fragment_frame"
             android:layout_width="match_parent"

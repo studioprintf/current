@@ -2,5 +2,7 @@
 <resources>
     <color name="colorPrimaryDark">#3A5FCD</color>
     <color name="translucent">#00FFFFFF</color>
+    <color name="deepWhite">#ffffff</color>
+    <color name="gray">#6d6d6d</color>
 
 </resources>

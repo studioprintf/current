@@ -23,7 +23,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_main);
-        this.initActivity();
         initViews();
         initData();
         changeToMyPage();

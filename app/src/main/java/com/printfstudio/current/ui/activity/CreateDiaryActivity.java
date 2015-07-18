@@ -16,8 +16,7 @@ public class CreateDiaryActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_create_diary);
-        this.initActivity();
-        this.setStatusBarColor(R.color.translucent);
+        this.setStatusBarColor(R.color.gray);
         initViews();
         initData();
     }

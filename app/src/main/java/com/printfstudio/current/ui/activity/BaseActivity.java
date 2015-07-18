@@ -1,6 +1,7 @@
 package com.printfstudio.current.ui.activity;
 
 
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -19,34 +20,23 @@ import com.printfstudio.current.tools.Tools;
  * 此Activity应用作本工程的主Activity
  * 此Activity做了三件事
  * 1.隐藏默认的SupportActionbar
- * 2.添加xml中的StatusBar
- * 3.设置StatusBar底层View的颜色和高度
- * 注意
- * 使用本Activity时
- * 设置的xml布局文件应include @layout/base_activity_component_status_bar
- * 并在setContentView();后调用initActivity();
+ * 2.设置StatusBar颜色
+ * 你可以调用setStatusBarColor(int id);来随时设置StatusBar颜色
  */
 public class BaseActivity extends AppCompatActivity {
     private Toolbar toolbar;
-    private View topView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setStatusBarColor(R.color.colorPrimaryDark);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public void setStatusBarColor(int id) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
-            window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(getResources().getColor(id));
         }
-    }
-
-    public void initActivity() {
-        topView = findViewById(R.id.top);
-        topView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Tools.getStatusBarHeight(this)));
-        topView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-    }
-
-    public void setStatusBarColor(int id) {
-        topView.setBackgroundColor(getResources().getColor(id));
     }
 
     public Toolbar getToolbar() {
@@ -58,11 +48,4 @@ public class BaseActivity extends AppCompatActivity {
         this.setSupportActionBar(toolbar);
     }
 
-    public View getTopView() {
-        return topView;
-    }
-
-    public void setTopView(View topView) {
-        this.topView = topView;
-    }
 }
